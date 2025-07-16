@@ -150,4 +150,12 @@ def outer_function2():
 
     inner_fun1()
 
-outer_function2()
+#outer_function2()
+
+
+
+
+def function1(n1, n2):
+    print(n1+n2)
+
+function1(30)
