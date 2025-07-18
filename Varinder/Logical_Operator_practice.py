@@ -11,7 +11,7 @@ num1 = 16
 if (num1 == 30) or (num1 == 16):
     print(" it will print this statement because at lest one condition is true")
 else:
-    print("one statement is false")
+    print("one statement is false)
 
 #Multiple If conditions
 
