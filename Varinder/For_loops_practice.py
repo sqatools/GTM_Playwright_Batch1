@@ -32,3 +32,27 @@ for i in range(1, 11):
     print("this is the sum :", sum)
 print(sum)
 
+
+### write the program in febonacci series ####
+
+# a = 0
+# b = 1
+# for i in range(10):
+#     a, b = b, a+b
+#     print(b, end= " ")
+
+##############################
+
+a = 0
+b = 1
+for _ in range(8):
+    a,b = b, a+b
+    print("this is the fabbencci", b)
+
+
+
+# write the program to get the list value#
+
+
+
+
