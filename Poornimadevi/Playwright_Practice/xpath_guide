@@ -1,0 +1,84 @@
+There are two types of xpath
+1. Absolute XPath: Absolute xpath follows the entire path of DOM structure to locate any element.
+      e.g. /html/body/div[1]/div[1]/div[1]/div/div/div/div[2]/div/div[1]/form/div[1]/div[1]/input
+      # Note :  absolute xpath is not recommended to user, because it is very unstable.
+
+2. Relative XPath: Relative xpath find the element with the help element attribute.
+        e.g   //tagname[@attribute='value']     or    //*[@attribute='value']
+        ->    //input[@type='text']               or    //*[@type='text']
+        ->    //input[@data-testid="royal-email"]  or    //*[@data-testid="royal-email"]
+
+
+        # If multiple element are matching with same attribute then we can user index
+          e.g :  (//input[@id='firstname'])[1]
+
+
+# Basic XPath Methods:
+
+1. text() method:  we can find the element with the help text of any element visible.
+                   e.g. //tagname[text()='text value']     or  //*[text()='text value']
+                     -> //a[text()='Create new account']   or  //*[text()='Create new account']
+                     -> //a[text()='Create a Page']        or  //*[text()='Create a Page']
+                     -> //button[text()='Log in']          or  //*[text()='Log in']
+
+2. contains() method: contains method find the element with the help of partial value of text or partial attribute
+                      value.
+                    e.g.  //tagname[contains(@attrib, 'partial value')]
+                     ->   //input[contains(@placeholder, 'Email address')]
+                     ->   //button[contains(@data-testid, 'royal-login')]
+
+                    e.g. //tagname[contains(text(), 'partial text')]
+                    ->   //h2[contains(text(), 'Facebook helps')]
+                    ->   //a[contains(text(), 'Create new')]
+
+3. logical condition with and/or :   we can find the element with the help of and/or logical condition
+                    e.g. //tagname[@attri1='value' and @attrib2='value']
+                    ->   //input[contains(@data-testid, 'royal') and @placeholder='Email address or phone number']
+
+                    e.g. //tagname[@attri1='value' and @attrib2='value']
+                    ->  //input[@type='text' or @type='password']
+
+4. starts-with :  This method look for prefix value of attribute or text.
+                    e.g.  //tagname[starts-with(@attribute, 'starting value')]
+                    ->    //input[starts-with(@placeholder, "Email")]
+                    ->    //a[starts-with(text(), 'Create new')]
+
+5. normalise-space : This method normal trailing spaces from target element, it means space at begining and ending of the value.
+                     e.g.  //tagname[normalize-space(@attribute)='value']
+                     -> //h2[normalize-space(text())='Travel Details']
+                     -> //h3[normalize-space(text())='Dummy Website']
+                     -> //a[normalize-space(@data-testid)='open-registration-form-button']
+
+
+##################### Advance XPath Method #########################
+1. parent : with this parent method we can identify any parent element with the help of reference of child element
+            e.g.   ref_tag[@attrib='value']//parent::tar_tag[@attribute='value']
+            ->     //td[text()='Mumbai']//parent::tr[@bgcolor='lightgrey']
+            ->     //td[text()='6007']//parent::tr[@bgcolor='lightgrey']//input
+            ->     //td[text()='Equity']//parent::tr/td[2]
+
+
+2. ancestor :  This method will identify the acenstor element with the help of child element:
+               e.g.   ref_tag[@attrib='value']//parent::tar_tag[@attribute='value']
+                     -> //td[text()='6001']//ancestor::table
+                     -> //input[@value='radio_345']//ancestor::ul//input[@value='radio_558']
+
+
+3. following :  with the help following method we can find all the element below side of reference element on the web page.
+                e.g. ref_tag[@attrib='value']//following::tar_tag[@attribute='value']
+                -> //input[@id='billing_email']//following::input[@name='prefecture']
+
+4. following-sibling: following method work with elements of one family, it means, it will target only those element
+                      belongs to same family of reference element and target the element on down side of reference element.
+
+               e.g. ref_tag[@attrib='value']//following-sibling::tar_tag[@attribute='value']
+               -> //td[text()='6004']//following-sibling::td[text()='Kolkata']
+
+5. preceding:    with the help preceding method we can find all the element upper side of reference element on the web page.
+                 e.g. ref_tag[@attrib='value']//preceding::tar_tag[@attribute='value']
+                 -> //input[@id='billing_email']//preceding::input[@id='male']
+
+6. preceding-sibling: preceding-sibling method will target the upper side sibling element from ref element.
+                e.g.  ref_tag[@attrib='value']//preceding-sibling::tar_tag[@attribute='value']
+                -> //td[text()='5000']//preceding-sibling::td/input
+

@@ -1,0 +1,30 @@
+CSS Selectors Methods
+1. ID :  id selector will initiate with the prefix #
+         e.g  #male , #billing_name, #email, input#male
+2. class name :  class name selector will initiate with prefix dot (.)
+         e.g.  .inputtext._55r1._6luy,  header.entry-header, div._6luy._55r1._1kbt>input
+
+3. Attribute  :   tagname[attribute='value']
+               -> input[data-testid="royal-email"]
+               -> [data-testid="royal-email"]
+               -> button[name="login"]
+
+4. Traversing : -> div>button[name="login"]
+                -> div>a[data-testid="open-registration-form-button"]
+
+5. start-with : starts with method will look prefix value of any attribute
+               -> a[data-testid^="open-registration"]
+               -> input[data-testid^="royal-p"]
+
+6. ends-with : ends with method will look for ending value of the any attribute
+               -> input[data-testid$="pass"]
+               -> [data-testid$="form-button"]
+
+# Playright Locators
+page.get_by_role() to locate by explicit and implicit accessibility attributes.
+page.get_by_text() to locate by text content.
+page.get_by_label() to locate a form control by associated label's text.
+page.get_by_placeholder() to locate an input by placeholder.
+page.get_by_alt_text() to locate an element, usually image, by its text alternative.
+page.get_by_title() to locate an element by its title attribute.
+page.get_by_test_id() to locate an element based on its data-testid attribute (other attributes can be configured).
