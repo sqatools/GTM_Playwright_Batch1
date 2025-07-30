@@ -1,0 +1,9 @@
+install playwright with below command
+->  pip install playwright
+
+# install latest version of browser library
+->  playwright install
+
+
+
+

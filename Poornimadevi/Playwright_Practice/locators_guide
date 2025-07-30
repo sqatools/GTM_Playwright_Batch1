@@ -1,0 +1,83 @@
+# XPath:
+
+1. Absolute xpath: Absolute follows the entire dom structure to locate any web element. This is very common way to get element
+                   and unstable xpath, it depends each of the element of the DOM, that may change any point of time.
+                   e.g. /html/body/div[1]/div[1]/div[1]/div/div/div/div[2]/div/div[1]/form/div[1]/div[1]/input
+
+2. Relative xpath: Relative xpath is defined by // and it directly target and element with the help of attribute and tagname
+                   e.g. //tagname[@attribute='value'] or //*[@attribute='value']
+                   -> //input[@type='text']
+                   -> //input[@name='email']
+                   -> //input[@placeholder='Email address or phone number']
+
+                   # look for any element with specified attribute without tagname
+                    e.g. //*[@attribute='value']
+                   -> //*[@placeholder='Email address or phone number']
+                   -> //*[@placeholder='Password']
+
+
+ # Basix XPATH Method:
+
+ 1.  text() method: we can find the element with the help text of any element
+                   e.g.  //tagname[text()='text value']  or //*[text()='text value']
+                   -> //a[text()='Create new account']   or //*[text()='Create new account']
+                   -> //a[text()='Create a Page']   or      //*[text()='Create a Page']
+
+ 2.  contains method: We can find the element with help of partial value attribute or text value.
+                      e.g. //tagname[contains(@attribute, 'value')]
+                      ->   //input[contains(@placeholder,'Email address')]
+                      ->   //*[contains(@aria-label,'Pass')]
+
+                      e.g. //tagname[contains(text(), 'partial text value')]
+                      ->   //button[contains(text(), 'Log')]
+                      ->   //h2[contains(text(), 'Facebook helps')]
+
+
+ 3.  logical operator and/or:  we cna find element with the help multiple attribute in a single xpath using logical opertor
+                      e.g.   //tagname[@attrib1='value' and @attrib2='value']
+                      ->     //input[@id='email' and @aria-label="Email address or phone number"]
+                      ->     //input[contains(@data-testid, 'royal') and @name='pass']
+
+
+                      e.g.   //tagname[@attrib1='value' or @attrib2='value']
+                      ->     //input[contains(@data-testid, 'royal') or @name='pass']
+
+ 4.  starts-with :   we can find the element with the help of start value of attribute
+                     e.g.    //tagname[starts-with(@attibute='start value')]
+                     ->      //input[starts-with(@placeholder, "Email")]
+                     ->      //button[starts-with(@data-testid, 'royal-login')]
+
+ 5.  ends-with :  we can find the element with the help end value of attribute
+                  e.g.     //tagname[ends-with(@attibute='end value')]
+                  ->       //button[ends-with(@name, 'login')]
+
+
+ 6.  normalize-space method. : we can find the element with normalise-space method and that will ignore trailing spaces
+                   e.g. //tagname[normalize-space(.), 'text value']
+                   ->  //button[normalize-space(.) = 'Log in']
+                   ->   //h2[normalize-space(.) ='Travel Details']
+
+
+# Indexing in multiple matching element
+                  e.g.   (//input[@name='firstname'])[1]
+
+
+################### Advance XPath Methods ################
+
+1. parent : In this method we will indentify the parent element with the help of child element
+               e.g.   //ref_tag[@attribute='value']//parent::tar_tag[@attribute='value']
+               ->     //td[text()='Mumbai']//parent::tr
+               ->     //td[text()='6007']//parent::tr//input[@type='checkbox']
+
+
+2. ancestor :  ancestor will help us to identify the grand parent element with the help of child element
+              e.g.  //ref_tag[@attribute='value']//ancestor::tar_tag[@attribute='value']
+              -> //td[text()='Mumbai']//ancestor::table[@id='cities']//td[text()='Delhi']
+
+
+3. following :
+4. following-sibling :
+5. preceding :
+6. preceding-sibling :
+
+
