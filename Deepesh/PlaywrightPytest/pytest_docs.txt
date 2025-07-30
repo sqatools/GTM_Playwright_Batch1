@@ -1,0 +1,23 @@
+# command to install playwright-pytest
+->  pip install pytest-playwright
+
+# each file with test_ as prefix in name, will consider as test suite file.
+
+# command to execute the pytest test cases:
+
+ -> python -m pytest -v .\test_basic_cases.py --headed --slowmo=1000 --tracing on
+ --headed :  execute code without headless mode of browser
+ --slowmo :  execute code with specific time between each step.
+ --tracing on :  enable tracing of the test cases for debugging
+
+
+# we can open the traceviewer in the browser
+->  open this URL : https://trace.playwright.dev/
+->  drag and drop the trace.zip file here.
+
+
+# command to open trace.zip file interminal
+-> playwright show-trace .\test-results\test-basic-cases-py-test-create-new-account-facebook-chromium\trace.zip
+
+# command to generate code
+-> playwright codegen
