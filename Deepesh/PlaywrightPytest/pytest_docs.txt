@@ -21,3 +21,48 @@
 
 # command to generate code
 -> playwright codegen
+
+
+# command to execute specific marker test cases from command line
+->  python -m pytest -v -m "smoke" .\test_smoke_validation.py
+
+
+# command to execute specific marker test cases from command line with and condition.
+-> python -m pytest -v -m "smoke and sanity" .\test_smoke_validation.py
+# python -m :  root directory
+# -v :  verbose : it provides teh detailed information
+# -m :  choose specific marker for test case execution
+
+# xfail marker test cases execution
+-> ======= 1 failed, 5 passed, 1 xfailed, 1 xpassed, 10 warnings in 0.25s ====
+
+# skip test cases on the basis of condition
+-> ================= 5 passed, 2 skipped, 1 xfailed, 10 warnings in 0.41s =======
+
+test_smoke_validation.py::TestSmoke::test_addition PASSED                                                                                                     [ 12%]
+test_smoke_validation.py::TestSmoke::test_multiplication PASSED                                                                                               [ 25%]
+test_smoke_validation.py::TestSmoke::test_division PASSED                                                                                                     [ 37%]
+test_smoke_validation.py::TestSmoke::test_subtraction XFAIL                                                                                                   [ 50%]
+test_smoke_validation.py::TestSmoke::test_addition_2 PASSED                                                                                                   [ 62%]
+test_smoke_validation.py::TestSmoke::test_multiplication_2 PASSED                                                                                             [ 75%]
+test_smoke_validation.py::TestSmoke::test_division_2 SKIPPED (unconditional skip)                                                                             [ 87%]
+test_smoke_validation.py::TestSmoke::test_subtraction_2 FAILED
+
+
+# command execute test cases with parametrize marker
+-> python -m pytest -v -s -k "test_login" .\test_smoke_validation.py
+-s :  show print output in console
+-k :  select specific test case to execute from test file.
+
+test_smoke_validation.py::TestSmoke::test_login[user1@gmail.com-user12345] Login Successful
+PASSED
+test_smoke_validation.py::TestSmoke::test_login[user2@gmail.com-admin1234] Login Successful
+PASSED
+test_smoke_validation.py::TestSmoke::test_login[user3@gmail.com-P@122344] Login Successful
+PASSED
+test_smoke_validation.py::TestSmoke::test_login[user4@gmail.com-P@ssw0rd] FAILED
+test_smoke_validation.py::TestSmoke::test_login[user5@gmail.com-End@pass] FAILED
+
+
+
+
