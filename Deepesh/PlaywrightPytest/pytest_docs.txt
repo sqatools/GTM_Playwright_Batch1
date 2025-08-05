@@ -64,5 +64,12 @@ test_smoke_validation.py::TestSmoke::test_login[user4@gmail.com-P@ssw0rd] FAILED
 test_smoke_validation.py::TestSmoke::test_login[user5@gmail.com-End@pass] FAILED
 
 
+# command to execute code with different browser :
 
+->  python -m pytest -v .\opensource_hrm_website.py --headed --slowmo=1000 --browser='firefox'
 
+# command to execute code with browser channel.
+->  python -m pytest -v .\opensource_hrm_website.py --headed --slowmo=1000 --browser-channel='chrome'
+
+# command to execute code with --base-url
+-> python -m pytest -v .\opensource_hrm_website.py --headed --slowmo=1000 --browser-channel='chrome' --base-url="https://opensource-demo.orangehrmlive.com"
