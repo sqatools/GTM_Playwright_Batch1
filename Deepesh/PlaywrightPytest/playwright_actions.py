@@ -10,24 +10,7 @@ class TestOpenHRM:
     def setup(self, page: Page):
         self.page = page
 
-
     @pytest.mark.skip
-    def test_login_functionality(self):
-        #self.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-        self.page.goto("/web/index.php/auth/login")
-        self.page.get_by_placeholder("Username").fill(TestData.username)
-        self.page.get_by_placeholder("Password").fill(TestData.password)
-        self.page.get_by_role("button", name="Login").click()
-        self.page.get_by_text("Admin").click()
-        self.page.locator("//label[text()='Username']//following::input[contains(@class, 'oxd-input--active')]").fill(
-            TestData.username)
-
-        self.page.locator("(//label[text()='User Role']//following::div[@class='oxd-select-text-input'])[1]").click()
-
-        self.page.locator("//div[@role='listbox']//*[contains(text(), 'Admin')]").click()
-        time.sleep(10)
-
-
     def test_verify_select_dropdown_value(self):
         self.page.goto("https://sqatools.in/dummy-booking-website/")
 
@@ -61,8 +44,50 @@ class TestOpenHRM:
         
         """
 
+
     def test_upload_a_file(self):
         self.page.goto("https://automationbysqatools.blogspot.com/2020/08/login.html")
+        time.sleep(5)
+        # upload file from current location
+        #self.page.locator("#myFile").set_input_files("user_input_data.py")
+
+        # upload file from any specific target path
+        self.page.locator("#myFile").set_input_files(r"E:\Filesdata\count_name.txt")
+        time.sleep(5)
+        self.page.locator("//form/input[@type='submit']").click()
+        time.sleep(5)
+
+
+    def test_execute_radio_checkbox(self):
+        self.page.goto("https://automationbysqatools.blogspot.com/2021/05/dummy-website.html")
+
+        # radio button status
+        element = self.page.locator("#oneway")
+        print("radio status :", element.is_checked())
+        element.set_checked(True)
+        print("radio status after check :", element.is_checked())
+
+        # checkbox elements list
+        checkbox_list = self.page.locator("//input[@type='checkbox']").all()
+        for checkbox in checkbox_list:
+            print("before check :", checkbox.is_checked())
+            checkbox.set_checked(True)
+            print("after check :", checkbox.is_checked())
+            print("_"*50)
+
+
+    def test_drag_drop_operation(self):
+        self.page.goto("https://www.globalsqa.com/demo-site/draganddrop/")
+
+        self.page.get_by_role("heading", name="High Tatras").drag_to(self.page.locator("#trash"))
+        time.sleep(5)
+
+
+
+
+
+
+
 
 
 
