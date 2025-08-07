@@ -83,6 +83,52 @@ class TestOpenHRM:
         time.sleep(5)
 
 
+    def test_handle_browser_tabs(self):
+        self.page.goto("https://automationbysqatools.blogspot.com/p/manual-testing.html")
+
+        # expect new popup windows
+        with self.page.expect_popup() as new_window:
+            self.page.get_by_text("Software Testing Principles").click()
+
+        new_page = new_window.value
+        all_headings = new_page.locator("//h3/span").all()
+        print(all_headings)
+        for heading in all_headings:
+            print(heading.text_content())
+
+        print("\n Title :", new_page.title())
+        print("\n URL :", new_page.url)
+
+        new_page.get_by_text("Online Training").click()
+        time.sleep(5)
+
+        new_page.close()
+        time.sleep(5)
+
+        self.page.get_by_text("Robot Framework").click()
+        time.sleep(5)
+        self.page.close()
+
+
+    def test_hover_to_element_action(self):
+        self.page.goto("https://www.globalsqa.com/demo-site/frames-and-windows/#iFrame")
+        self.page.get_by_role("link", name="Tester’s Hub").hover()
+        self.page.locator("//div[@id='menu']//a[normalize-space()='Demo Testing Site']").hover()
+        self.page.locator("//div[@id='menu']//a[normalize-space()='AlertBox']").click()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
