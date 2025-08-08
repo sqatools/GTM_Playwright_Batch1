@@ -5,6 +5,21 @@ from playwright.sync_api import Page, Playwright, sync_playwright
 
 """
 page.get_by_role() to locate by explicit and implicit accessibility attributes.
+
+# https://playwright.dev/python/docs/api/class-page#page-get-by-role
+role "alert" | "alertdialog" | "application" | "article" | "banner" | "blockquote" | "button" | 
+"caption" | "cell" | "checkbox" | "code" | "columnheader" | "combobox" | "complementary" | 
+"contentinfo" | "definition" | "deletion" | "dialog" | "directory" | "document" | "emphasis" |
+ "feed" | "figure" | "form" | "generic" | "grid" | "gridcell" | "group" | "heading" | "img" |
+  "insertion" | "link" | "list" | "listbox" | "listitem" | "log" | "main" | "marquee" | "math" |
+   "meter" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "navigation" |
+    "none" | "note" | "option" | "paragraph" | "presentation" | "progressbar" | "radio" | "radiogroup" | 
+    "region" | "row" | "rowgroup" | "rowheader" | "scrollbar" | "search" | "searchbox" | "separator" |
+     "slider" | "spinbutton" | "status" | "strong" | "subscript" | "superscript" | "switch" | "tab" | 
+     "table" | "tablist" | "tabpanel" | "term" | "textbox" | "time" | "timer" | "toolbar" | "tooltip" | 
+     "tree" | "treegrid" | "treeitem"#
+
+
 page.get_by_text() to locate by text content.
 page.get_by_label() to locate a form control by associated label's text.
 page.get_by_placeholder() to locate an input by placeholder.
