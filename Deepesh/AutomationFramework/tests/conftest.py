@@ -1,5 +1,6 @@
 import pytest
-from playwright.sync_api import Page, Playwright, Browser
+from playwright.sync_api import Page, Playwright, Browser, sync_playwright
+
 
 @pytest.fixture(scope='class')
 def get_page(request, page: Page):
@@ -8,3 +9,20 @@ def get_page(request, page: Page):
     yield
     page.close()
 
+
+@pytest.fixture(scope='class')
+def browser_context(request):
+    with sync_playwright() as p:
+        browser: Browser = p.chromium.launch(headless=False, args=["--start-maximized"])
+        context = browser.new_context(no_viewport=True)
+        yield context
+        context.close()
+        browser.close()
+
+
+@pytest.fixture(scope="class")
+def page_fixture(browser_context):
+    page: Page = browser_context.new_page()
+    page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    yield page
+    page.close()
