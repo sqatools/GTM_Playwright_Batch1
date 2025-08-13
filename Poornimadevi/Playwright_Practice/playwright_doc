@@ -4,6 +4,8 @@ install playwright with below command
 # install latest version of browser library
 ->  playwright install
 
+python download:
+https://www.python.org/ftp/python/3.13.5/python-3.13.5-amd64.exe
 
-
-
+pycharm: other versions : 2022.2.2 versions : compatible for python
+https://download.jetbrains.com/python/pycharm-community-2022.2.2.exe?_gl=1*zhq5v1*_gcl_au*MTM5NTE4NTAyMy4xNzUzNzY1NTcy*FPAU*MTM5NTE4NTAyMy4xNzUzNzY1NTcy*_ga*MTgxOTk0MjIzMi4xNzUzNzY1NTc1*_ga_9J976DJZ68*czE3NTM3NjU1NzIkbzEkZzEkdDE3NTM3NjU3NjMkajQ2JGwwJGgw
