@@ -13,7 +13,7 @@ def get_page(request, page: Page):
 @pytest.fixture(scope='class')
 def browser_context(request):
     with sync_playwright() as p:
-        browser: Browser = p.chromium.launch(headless=False, args=["--start-maximized"])
+        browser: Browser = p.chromium.launch(headless=False, args=["--start-maximized"], slow_mo=3000)
         context = browser.new_context(no_viewport=True)
         yield context
         context.close()

@@ -25,6 +25,7 @@ class TestOpenHRM:
         # select by value
         self.page.locator("#admorepass").select_option(value="3")
         self.page.locator("#billing_country").select_option(value="AQ")
+        self.page.locator(".admin").select_option()
 
         # If multiple values are to select
         # self.page.locator("#billing_country").select_option(['Mango', 'Banana', 'Apple'])

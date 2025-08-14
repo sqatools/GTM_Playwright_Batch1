@@ -20,6 +20,7 @@ class TestOpenHrmWebsite:
         self.jb = JobTitle(self.page)
         self.util = Utils()
         self.data_file_path = os.path.join(os.getcwd(), "resource_data/test_input_data.json")
+        self.excel_file = os.path.join(os.getcwd(), "resource_data/test_data.xlsx")
         self.data = self.util.read_json_data(self.data_file_path)
 
     def test_login_to_hrm_website(self):
@@ -43,4 +44,9 @@ class TestOpenHrmWebsite:
         self.ad.navigate_to_admin_page()
         expect(self.ad.get_admin_heading()).to_be_visible()
         self.jb.navigate_to_job_title()
+        self.jb.add_job_title(job_title=self.util.read_excel_file(self.excel_file, "Sheet1", "B2"),
+                              job_desc=self.util.read_excel_file(self.excel_file, "Sheet1", "B3"),
+                              file_path=self.util.read_excel_file(self.excel_file, "Sheet1", "B4"),
+                              notes=self.util.read_excel_file(self.excel_file, "Sheet1", "B5"))
         time.sleep(5)
+
