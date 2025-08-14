@@ -1,0 +1,21 @@
+{
+  "AdminPage" : {
+    "AddUser": {
+      "user_role": "Admin",
+      "user_status": "Enabled",
+      "employee_name": "Ravi M B",
+      "emp_username" : "Ravi2025",
+      "password" : "user@12345"
+    },
+
+     "JobTitle" : {
+       "job_title" : "",
+       "job_description" : "",
+       "job_specification" : ""
+     }
+  }
+
+
+
+}
+
