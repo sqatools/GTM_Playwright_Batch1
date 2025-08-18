@@ -23,12 +23,14 @@ class TestOpenHrmWebsite:
         self.excel_file = os.path.join(os.getcwd(), "resource_data/test_data.xlsx")
         self.data = self.util.read_json_data(self.data_file_path)
 
+    @pytest.mark.smoke
     def test_login_to_hrm_website(self):
         self.lp.login_to_hrm_website(user_name='Admin', pass_value='admin123')
         expect(self.lp.get_dashboard_heading()).to_be_visible()
 
-    @pytest.mark.skip
+    @pytest.mark.sanity
     def test_admin_verify_operation(self):
+        self.lp.login_to_hrm_website(user_name='Admin', pass_value='admin123')
         self.ad.navigate_to_admin_page()
         expect(self.ad.get_admin_heading()).to_be_visible()
         time.sleep(5)
@@ -40,6 +42,7 @@ class TestOpenHrmWebsite:
                                    conf_pass=self.data['AdminPage']['AddUser']['password'])
         time.sleep(5)
 
+    @pytest.mark.sanity
     def test_add_job_title_and_verify(self):
         self.ad.navigate_to_admin_page()
         expect(self.ad.get_admin_heading()).to_be_visible()
@@ -49,4 +52,3 @@ class TestOpenHrmWebsite:
                               file_path=self.util.read_excel_file(self.excel_file, "Sheet1", "B4"),
                               notes=self.util.read_excel_file(self.excel_file, "Sheet1", "B5"))
         time.sleep(5)
-
