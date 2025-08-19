@@ -24,12 +24,14 @@ class TestOpenHrmWebsite:
         self.data = self.util.read_json_data(self.data_file_path)
 
     @pytest.mark.smoke
-    def test_login_to_hrm_website(self):
+    def test_login_to_hrm_website(self, request):
+        self.lp.log.info(f"Test Name: {request.node.name}")
         self.lp.login_to_hrm_website(user_name='Admin', pass_value='admin123')
         expect(self.lp.get_dashboard_heading()).to_be_visible()
 
     @pytest.mark.sanity
-    def test_admin_verify_operation(self):
+    def test_admin_verify_operation(self, request):
+        self.lp.log.info(f"Test Name: {request.node.name}")
         self.lp.login_to_hrm_website(user_name='Admin', pass_value='admin123')
         self.ad.navigate_to_admin_page()
         expect(self.ad.get_admin_heading()).to_be_visible()
@@ -43,7 +45,8 @@ class TestOpenHrmWebsite:
         time.sleep(5)
 
     @pytest.mark.sanity
-    def test_add_job_title_and_verify(self):
+    def test_add_job_title_and_verify(self, request):
+        self.lp.log.info(f"Test Name: {request.node.name}")
         self.ad.navigate_to_admin_page()
         expect(self.ad.get_admin_heading()).to_be_visible()
         self.jb.navigate_to_job_title()

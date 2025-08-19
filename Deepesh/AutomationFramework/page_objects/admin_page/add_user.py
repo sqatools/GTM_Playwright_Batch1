@@ -1,8 +1,10 @@
 import re
+from ..common.base_page import BasePage
 
 
-class AddUser:
+class AddUser(BasePage):
     def __init__(self, page):
+        super().__init__()
         self.page = page
 
     def navigate_to_admin_page(self):

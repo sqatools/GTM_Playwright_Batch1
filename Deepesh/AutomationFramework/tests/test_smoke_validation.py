@@ -20,6 +20,7 @@ session scope:  pytest.fixture(scope='session')
 """
 import pytest
 from .environment_data import *
+from ..page_objects.common.base_page import BasePage
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -86,7 +87,8 @@ class TestSmoke:
         ('user5@gmail.com', 'End@pass'),
 
     ])
-    def test_login(self, username, password):
+    def test_login(self, username, password, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         if (username, password) in db_users_details:
             print("Login Successful")
         else:
@@ -94,40 +96,46 @@ class TestSmoke:
 
 
     @pytest.mark.smoke
-    def test_addition(self):
+    def test_addition(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 40
         n2 = 50
         assert n1+n2 == 90
 
     @pytest.mark.smoke
-    def test_multiplication(self):
+    def test_multiplication(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 4
         n2 = 5
         assert n1*n2 == 20
 
     @pytest.mark.smoke
     @pytest.mark.sanity
-    def test_division(self):
+    def test_division(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 40
         n2 = 5
         assert n1//n2 == 8
 
     @pytest.mark.xfail
     @pytest.mark.sanity
-    def test_subtraction(self):
+    def test_subtraction(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 40
         n2 = 5
         assert n1 - n2 == 33
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    def test_addition_2(self):
+    def test_addition_2(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 40
         n2 = 50
         assert n1+n2 == 90
 
     @pytest.mark.regression
-    def test_multiplication_2(self):
+    def test_multiplication_2(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 4
         n2 = 5
         assert n1*n2 == 20
@@ -135,14 +143,16 @@ class TestSmoke:
     @pytest.mark.skip  # This is unconditional skip
     @pytest.mark.xfail
     @pytest.mark.nonfunc
-    def test_division_2(self):
+    def test_division_2(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 40
         n2 = 5
         assert n1//n2 == 8
 
     @pytest.mark.skipif(ENV != "TEST", reason="This feature in only available in test env")
     @pytest.mark.nonfunc
-    def test_subtraction_2(self):
+    def test_subtraction_2(self, request):
+        BasePage().log.info(f"Test Name: {request.node.name}")
         n1 = 40
         n2 = 5
         assert n1 - n2 == 33

@@ -1,0 +1,22 @@
+2025-08-19 07:37:47 [INFO] (test_openhrm_website.py:28) Test Name: test_login_to_hrm_website
+2025-08-19 07:37:47 [INFO] (login_page.py:15) enter username : Admin
+2025-08-19 07:37:51 [INFO] (login_page.py:19) enter password: admin123
+2025-08-19 07:37:54 [INFO] (login_page.py:23) clicking on login button: name=login
+2025-08-19 07:38:03 [INFO] (login_page.py:27) get dashboard page heading element
+2025-08-19 07:38:08 [INFO] (test_openhrm_website.py:34) Test Name: test_admin_verify_operation
+2025-08-19 07:38:08 [INFO] (login_page.py:15) enter username : Admin
+2025-08-19 07:38:11 [INFO] (login_page.py:19) enter password: admin123
+2025-08-19 07:38:14 [INFO] (login_page.py:23) clicking on login button: name=login
+2025-08-19 07:39:10 [INFO] (test_openhrm_website.py:49) Test Name: test_add_job_title_and_verify
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:91) Test Name: test_login[user1@gmail.com-user12345]
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:91) Test Name: test_login[user2@gmail.com-admin1234]
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:91) Test Name: test_login[user3@gmail.com-P@122344]
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:91) Test Name: test_login[user4@gmail.com-P@ssw0rd]
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:91) Test Name: test_login[user5@gmail.com-End@pass]
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:100) Test Name: test_addition
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:107) Test Name: test_multiplication
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:115) Test Name: test_division
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:123) Test Name: test_subtraction
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:131) Test Name: test_addition_2
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:138) Test Name: test_multiplication_2
+2025-08-19 07:39:46 [INFO] (test_smoke_validation.py:155) Test Name: test_subtraction_2
